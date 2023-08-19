@@ -1,0 +1,23 @@
+# Define the parameters
+mu = 10
+sigma = 2.5
+
+# Visualize the probability density function (pdf)
+x_vals = seq(0, 50, by = 0.1)
+norm_pdf = dnorm(x_vals, mean = mu, sd = sigma)
+
+# Let's use some of the other R functions to describe the distribution
+
+## What is the probability density of specific values?
+## mean
+p_mu = dnorm(mu, mean = mu, sd = sigma)
+## The next two values will describe the 95% probability density bounds
+## (Low) 2.5% cut off 
+x_low95 = qnorm(0.025, mean = mu, sd = sigma)
+p_low95 = dnorm(x_low95, mean = mu, sd = sigma)
+## (High) 97.5% cut off
+x_high95 = qnorm(0.975, mean = mu, sd = sigma)
+p_high95 = dnorm(x_high95, mean = mu, sd = sigma)
+
+# So, what is the P(x <= x_high95)??
+pnorm(x_high95, mean = mu, sd = sigma)
